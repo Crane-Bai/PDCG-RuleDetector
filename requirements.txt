@@ -1,0 +1,5 @@
+# Python dependencies for PDCG-RuleDet
+# Stage 2 (PDCG construction) + Stage 3 (feature extraction)
+pandas>=2.0
+networkx>=3.0      # provides community.louvain_communities used by graph features
+numpy>=1.24

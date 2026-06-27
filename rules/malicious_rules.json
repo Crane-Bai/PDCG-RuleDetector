@@ -1,0 +1,556 @@
+{
+  "metadata": {
+    "version": "3.0",
+    "total_rules": 60,
+    "category_breakdown": {
+      "IG": 14,
+      "DT": 19,
+      "DE": 7,
+      "PE": 16,
+      "SP": 4
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "IG-001",
+      "name": "IG-001",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(os|fs|path|crypto)$"
+      }
+    },
+    {
+      "rule_id": "IG-002",
+      "name": "IG-002",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content": "dns"
+      }
+    },
+    {
+      "rule_id": "IG-003",
+      "name": "IG-003",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "os\\.(hostname|userInfo|homedir|tmpdir|platform|arch|cpus|networkInterfaces)$"
+      }
+    },
+    {
+      "rule_id": "IG-004",
+      "name": "IG-004",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "dns\\.(lookup|resolve|getServers|reverse)$"
+      }
+    },
+    {
+      "rule_id": "IG-005",
+      "name": "IG-005",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "fs\\.(readFile|readdir|stat|access)$"
+      }
+    },
+    {
+      "rule_id": "IG-006",
+      "name": "IG-006",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(tasklist|ps\\s+aux)$"
+      }
+    },
+    {
+      "rule_id": "IG-007",
+      "name": "IG-007",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(hostname|whoami|pwd|id|uname)$"
+      }
+    },
+    {
+      "rule_id": "IG-008",
+      "name": "IG-008",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(ls|dir)( -[a-zA-Z]+)?$"
+      }
+    },
+    {
+      "rule_id": "IG-009",
+      "name": "IG-009",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(/[a-zA-Z0-9_.-]+)+\\.(json|conf|cfg|ini)$"
+      }
+    },
+    {
+      "rule_id": "IG-010",
+      "name": "IG-010",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "process\\.env"
+      }
+    },
+    {
+      "rule_id": "IG-011",
+      "name": "IG-011",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(env|printenv)$"
+      }
+    },
+    {
+      "rule_id": "DT-001",
+      "name": "DT-001",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(net|http|https|tls|dgram)$"
+      }
+    },
+    {
+      "rule_id": "DT-002",
+      "name": "DT-002",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "\\.(connect|request|createConnection)$"
+      }
+    },
+    {
+      "rule_id": "DT-003",
+      "name": "DT-003",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "\\.(pipe|write|send)$"
+      }
+    },
+    {
+      "rule_id": "DT-004",
+      "name": "DT-004",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "https?://[^\\s/$.?#].[^\\s]*"
+      }
+    },
+    {
+      "rule_id": "DT-006",
+      "name": "DT-006",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "(-X\\s+POST|--data)"
+      }
+    },
+    {
+      "rule_id": "DT-007",
+      "name": "DT-007",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "/(etc|home|root)/[^\\s]*"
+      }
+    },
+    {
+      "rule_id": "DT-008",
+      "name": "DT-008",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "\\.(oast\\.(site|fun|live|pro|online|me)|oastify\\.com|burpcollaborator\\.net|canarytokens\\.com|webhook\\.site|pipedream\\.net|grabify\\.link|webhook-test\\.com|bxss\\.in|xsshunter|xss8\\.uk|x1\\.pe|ply\\.gg|ghostfiles\\.eu|filebin\\.net|transfer\\.sh|xss\\.report|mtsrc-test\\.|ipv6\\.1433\\.eu\\.org)"
+      }
+    },
+    {
+      "rule_id": "DT-009",
+      "name": "DT-009",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "(ifconfig\\.me|ipinfo\\.io|icanhazip\\.com)"
+      }
+    },
+    {
+      "rule_id": "DT-010",
+      "name": "DT-010",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "https\\.(request|get)$"
+      }
+    },
+    {
+      "rule_id": "DT-011",
+      "name": "DT-011",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "http\\.(request|get)$"
+      }
+    },
+    {
+      "rule_id": "DT-012",
+      "name": "DT-012",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "net\\.(connect|createConnection)$"
+      }
+    },
+    {
+      "rule_id": "DT-013",
+      "name": "DT-013",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+      }
+    },
+    {
+      "rule_id": "IG-013",
+      "name": "IG-013",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "(localStorage|sessionStorage)\\.(getItem|setItem)"
+      }
+    },
+    {
+      "rule_id": "IG-014",
+      "name": "IG-014",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content": "dotenv"
+      }
+    },
+    {
+      "rule_id": "DT-014",
+      "name": "DT-014",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(444[0-9]|[5-9][0-9]{3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
+      }
+    },
+    {
+      "rule_id": "DT-016",
+      "name": "DT-016",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(nmap|ping|telnet|netstat)$"
+      }
+    },
+    {
+      "rule_id": "DT-017",
+      "name": "DT-017",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "(axios|fetch)\\.(get|post|put|delete)$"
+      }
+    },
+    {
+      "rule_id": "DT-018",
+      "name": "DT-018",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "(googleapis\\.com|sheets|spreadsheet|oss-cn-|amazonaws\\.com|cloudfront\\.net|metadata\\.google\\.internal|169\\.254\\.169\\.254|169\\.254\\.169\\.253)"
+      }
+    },
+    {
+      "rule_id": "DT-020",
+      "name": "DT-020",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "\\.(setHeader|headers)$"
+      }
+    },
+    {
+      "rule_id": "DT-030",
+      "name": "DT-030",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "(ngrok-free\\.app|ngrok\\.io|localtunnel\\.me|serveo\\.net)"
+      }
+    },
+    {
+      "rule_id": "DT-032",
+      "name": "DT-032",
+      "category": "DATA_TRANSMISSION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content": "dgram"
+      }
+    },
+    {
+      "rule_id": "IG-012",
+      "name": "IG-012",
+      "category": "INFORMATION_GATHERING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content": "zlib"
+      }
+    },
+    {
+      "rule_id": "DE-001",
+      "name": "DE-001",
+      "category": "DATA_ENCODING",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "(JSON|Buffer)\\."
+      }
+    },
+    {
+      "rule_id": "DE-002",
+      "name": "DE-002",
+      "category": "DATA_ENCODING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "(base64|hex|utf8|ascii)"
+      }
+    },
+    {
+      "rule_id": "DE-003",
+      "name": "DE-003",
+      "category": "DATA_ENCODING",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "_0x[0-9a-f]{4,6}"
+      }
+    },
+    {
+      "rule_id": "DE-004",
+      "name": "DE-004",
+      "category": "DATA_ENCODING",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "^(atob|btoa)$"
+      }
+    },
+    {
+      "rule_id": "DE-005",
+      "name": "DE-005",
+      "category": "DATA_ENCODING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "(BEGIN PRIVATE KEY|iam\\.gserviceaccount\\.com|[A-Za-z0-9]{32,})"
+      }
+    },
+    {
+      "rule_id": "DE-006",
+      "name": "DE-006",
+      "category": "DATA_ENCODING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^[A-Za-z0-9+/]{100,}={0,2}$"
+      }
+    },
+    {
+      "rule_id": "DE-007",
+      "name": "DE-007",
+      "category": "DATA_ENCODING",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "_0x[0-9a-f]{4,6}",
+        "ex_content_regex": "(_0x[0-9a-f]{4,6}|\\+|\\[)"
+      }
+    },
+    {
+      "rule_id": "PE-001",
+      "name": "PE-001",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content": "child_process"
+      }
+    },
+    {
+      "rule_id": "PE-002",
+      "name": "PE-002",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "(spawn|exec|fork)$"
+      }
+    },
+    {
+      "rule_id": "PE-003",
+      "name": "PE-003",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(/usr/bin/)?(bash|sh|zsh|cmd|powershell)$"
+      }
+    },
+    {
+      "rule_id": "PE-004",
+      "name": "PE-004",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(curl|wget|nc|netcat)$"
+      }
+    },
+    {
+      "rule_id": "PE-005",
+      "name": "PE-005",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^chmod$"
+      }
+    },
+    {
+      "rule_id": "PE-006",
+      "name": "PE-006",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^nohup$"
+      }
+    },
+    {
+      "rule_id": "PE-007",
+      "name": "PE-007",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "process\\.(exit|kill|abort)"
+      }
+    },
+    {
+      "rule_id": "PE-008",
+      "name": "PE-008",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "\\$\\([^)]+\\)"
+      }
+    },
+    {
+      "rule_id": "PE-009",
+      "name": "PE-009",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "^(eval|Function)$"
+      }
+    },
+    {
+      "rule_id": "PE-010",
+      "name": "PE-010",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "CALL",
+        "callee_name_regex": "document\\.(createElement|appendChild)"
+      }
+    },
+    {
+      "rule_id": "PE-011",
+      "name": "PE-011",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "powershell.*-e"
+      }
+    },
+    {
+      "rule_id": "PE-012",
+      "name": "PE-012",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "pm2\\s+(start|delete|restart|list)"
+      }
+    },
+    {
+      "rule_id": "PE-013",
+      "name": "PE-013",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "https?://[^\\s]*\\.(js|bxss\\.in)"
+      }
+    },
+    {
+      "rule_id": "PE-014",
+      "name": "PE-014",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "https?://[^\\s]*\\.(exe|bin|sh|bat|msi)$"
+      }
+    },
+    {
+      "rule_id": "PE-015",
+      "name": "PE-015",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(nslookup|dig|host)$"
+      }
+    },
+    {
+      "rule_id": "PE-016",
+      "name": "PE-016",
+      "category": "PAYLOAD_EXECUTION",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content": "sudo"
+      }
+    },
+    {
+      "rule_id": "SP-001",
+      "name": "SP-001",
+      "category": "SPECIAL_PATTERNS",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "/(tmp|temp)/"
+      }
+    },
+    {
+      "rule_id": "SP-002",
+      "name": "SP-002",
+      "category": "SPECIAL_PATTERNS",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "-[sS]+(L|l)?\\b"
+      }
+    },
+    {
+      "rule_id": "SP-003",
+      "name": "SP-003",
+      "category": "SPECIAL_PATTERNS",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "^(777|666|755)$"
+      }
+    },
+    {
+      "rule_id": "SP-004",
+      "name": "SP-004",
+      "category": "SPECIAL_PATTERNS",
+      "pdcg_pattern": {
+        "node_type": "ARGUMENT",
+        "content_regex": "(>/dev/null|2>&1)"
+      }
+    }
+  ]
+}
