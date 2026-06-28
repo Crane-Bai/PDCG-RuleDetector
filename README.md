@@ -14,7 +14,7 @@ This is the open-access artifact accompanying the paper.
 
 ```text
  package source  ──▶  (0) package.json virtualization  ──▶  (1) AST  ──▶  (2) PDCG  ──▶  (3) Features
-                          │                                  │                                ├─ 60 rule-matching
+                          │                                  │                                ├─ 61 rule-matching
                           │                                  │                                └─ 27 graph-structure
                           └─ install hooks -> virtual JS     └─ .ast.json per file
 ```
@@ -176,9 +176,9 @@ Pass `--rules rules/malicious_rules.json` if running from another directory.
 
 ---
 
-## The 87 features
+## The 88 features
 
-**Rule-matching (60):** one column per rule in `rules/malicious_rules.json`,
+**Rule-matching (60+1):** one column per rule in `rules/malicious_rules.json`,
 organized into five behavioral categories:
 - `IG` Information Gathering
 - `DT` Data Transmission
